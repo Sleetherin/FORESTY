@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORESTY</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <canvas id="canvas1"></canvas>
+   
+    <!--buttons we need-->
+    <button id="play_button">PLAY</button>
+    <button id="info_button">?</button>
+
+    <!-- backgrounds of five levels-->
+    <img src="./assets/backgroundearlyevening.png" id="background"/>
+    <img src="./assets/backgrounddusk.png" id="background2"/>
+    <img src="./assets/backgroundtwilight.png" id="background3"/>
+    <img src="./assets/backgroundlateevening.png" id="background4"/>
+    <img src="./assets/backgroundmidnight.png" id="background5"/>
+    
+
+    <!-- our charming enemies -->
+    <img src="./assets/dark-ghost-sprites.png" id="darky"/>
+
+    <img src="./assets/flying-sandwich-sprites.png" id="sandwichey"/>
+
+    <img src="./assets/angry-ghost-sprites.png" id="angry"/>
+
+    <img src="./assets/blue-ghost-idle-sprites.png" id="bluey"/>
+    <img src="./assets/blue-ghost-get-hit-sprites.png" id="bluey_hit"/>
+    <img src="./assets/buggy-ghost-sprites.png" id="buggy"/>
+
+    <img src="./assets/fluffy-monster-walking-sprites.png" id="fluffy"/>
+    <img src="./assets/fluffy-monster-got-hit-sprites.png" id="fluffy_hit"/>
+
+
+    <!-- special effects -->
+    <img src="./assets/boom.png" id="boom"/>
+    <img src="./assets/projectile.png" id="projectile"/>
+    
+     <!-- our lovely character -->
+    <img src="./assets/ghosty-sprites.png" id="ghosty"/>
+
+    <!--how to play-->
+    <div id="how_to_play">
+        <h1>HOW TO PLAY  'FORESTY'</h1>
+        <button id="close_button">X</button>
+        <h2>
+            👻Eliminate 30 darkies within 30 seconds.
+        </h2>
+        <h2>
+            👻Eliminate 40 sandwich aliens withing 50 seconds
+        </h2>
+        <h2>
+            👻For 60 seconds don't let any angry ghosts pass
+        </h2>
+        <h2>
+            👻For 70 seconds don't let any blue ghosts or buggy ghosts pass,
+            and destroy blue ghost with your new weapon. Press 'space' to attack them. 
+            If they touch you, you lose.
+        </h2> 
+        <h2>
+            👻Eliminate 50 fluffy monster,buggy ghosts, dark ghosts or angry ghosts within 80 seconds. Press 'space' to 
+            eliminate fluffy monsters. If they touch you, you lose. Don't let any of them pass. 
+        </h2>  
+    </div>
+
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

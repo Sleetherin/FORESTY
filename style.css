@@ -1,0 +1,127 @@
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#canvas1 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #cccccc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+ 
+
+/* assets */
+#ghosty,#darky,#sandwichey,#angry,#bluey,#bluey_hit,#buggy,#fluffy,#fluffy_hit,#boom,#projectile,#play_button, 
+#background0,#background,#background2,#background3,#background4,#background5{
+    display:none;
+}
+
+#play_button{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:2;
+    padding: 8px 16px;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Bangers', cursive;
+    font-size: 24px;
+    color: black;
+    text-shadow: 1px 1px 1px #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#play_button:hover{
+    background-color: yellow;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+
+#info_button{
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top:20%;
+    left:90%;
+    z-index:2;
+    font-family: 'Bangers', cursive;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 50%;
+    background-color: yellow;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s;
+}
+
+#info_button:hover{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#how_to_play {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    display: none;
+    color: white;
+    background-color: #272844;
+    z-index: 2;
+    font-family: 'Exo 2', sans-serif;
+    border: 4px dashed #ff00ff; 
+    border-radius: 20px; 
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    overflow: auto;
+  }
+  
+
+  #how_to_play h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 2.5vw; 
+  }
+  
+  #how_to_play h2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.5vw; 
+  }
+  
+
+  #close_button {
+    position: absolute;
+    right: 5%;
+    top:5%;
+    display: none;
+    background-color: #ff00ff;
+    margin: 5px;
+    border: none;
+    color: black;
+    font-family: 'Exo 2', sans-serif;
+    font-size:10px;
+    font-weight: 10px;
+    width:15px;
+    height:15px;
+
+  }
+  
+  #close_button:hover {
+    cursor: pointer;
+  }
