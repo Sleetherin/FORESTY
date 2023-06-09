@@ -24,7 +24,7 @@ export class StartGameMessage
     draw(context)
     {
        const image = new Image();
-       image.src = "assets/forest2.jpg";
+       image.src = "assets/images/forest2.jpg";
       
   
        context.save();

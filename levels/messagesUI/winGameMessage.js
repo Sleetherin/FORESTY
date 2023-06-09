@@ -20,7 +20,7 @@ export class WinGameMessage
     draw(context)
     {
        const image = new Image();
-       image.src = "assets/end.jpg";
+       image.src = "assets/images/end.jpg";
        context.save();
        context.drawImage(image,0,0,this.width,this.height);
        context.shadowOffsetX = 2;
