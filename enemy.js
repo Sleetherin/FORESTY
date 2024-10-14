@@ -9,6 +9,9 @@ class Enemy{
         this.speedX = speed;
     }
     update(deltaTime){
+
+        if(isPaused) return;
+        
         this.x -= this.speedX;
         this.y += this.speedY;
        if(this.frameTimer > this.frameInterval){

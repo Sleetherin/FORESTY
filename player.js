@@ -44,8 +44,11 @@ export class Player{
       }
     }
     update(deltaTime){
-         //while-waiting animation
-         if(this.frameTimer > this.frameInterval){
+
+        if(isPaused) return;
+
+        //while-waiting animation
+        if(this.frameTimer > this.frameInterval){
             this.frameTimer = 0;
             if(this.frameX < this.maxFrame) this.frameX++;
             else this.frameX = 0;

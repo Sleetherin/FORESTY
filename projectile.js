@@ -14,6 +14,7 @@ export class Projectile
 
     update()
     {
+        if(isPaused) return;
         this.x += this.speed;
         if(this.x > this.game.width * 0.9) this.markedForDeletion = true;
     }
