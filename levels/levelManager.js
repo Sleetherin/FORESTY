@@ -20,19 +20,19 @@ export class LevelManager {
         ];
 
         this.startGameMessage = new StartGameMessage(
-    width,
-    height,
-    "FORESTY",
-    "Guide Ghosty into the forest until it is midnight"
-);
+            width,
+            height,
+            "FORESTY",
+            "Guide Ghosty into the forest until it is midnight"
+        );
 
-this.levelStartMessages = [
-    new StartGameMessage(width, height, "LEVEL ONE", "Eliminate 30 dark ghosts in 30 seconds."),
-    new StartGameMessage(width, height, "LEVEL TWO", "Eliminate 40 sandwich aliens in 50 seconds."),
-    new StartGameMessage(width, height, "LEVEL THREE", "Survive for 60 seconds without letting angry ghosts pass."),
-    new StartGameMessage(width, height, "LEVEL FOUR", "Destroy blue ghosts and survive for 70 seconds."),
-    new StartGameMessage(width, height, "LEVEL FIVE", "Eliminate 50 monsters before time runs out.")
-];
+        this.levelStartMessages = [
+            new StartGameMessage(width, height, "LEVEL ONE", "Eliminate 30 dark ghosts in 30 seconds."),
+            new StartGameMessage(width, height, "LEVEL TWO", "Eliminate 40 sandwich aliens in 50 seconds."),
+            new StartGameMessage(width, height, "LEVEL THREE", "Survive for 60 seconds without letting angry ghosts pass."),
+            new StartGameMessage(width, height, "LEVEL FOUR", "Destroy blue ghosts and survive for 70 seconds."),
+            new StartGameMessage(width, height, "LEVEL FIVE", "Eliminate 50 monsters before time runs out.")
+        ];
 
         this.phase = "start";
         this.currentLevel = this.startGameMessage;
@@ -40,6 +40,15 @@ this.levelStartMessages = [
 
         this.playButton = document.getElementById("play_button");
         this.winMessage = new WinGameMessage(width, height);
+
+        this.howToPlayButton = document.getElementById("info_button");
+        this.howToPlayInformation = document.getElementById("how_to_play");
+        this.closeButton = document.getElementById("close_button");
+
+        this.howToPlayButton.addEventListener("click", () => {
+            this.howToPlayInformation.style.display = "block";
+            this.closeButton.style.display = "block";
+        });
     }
 
     update(deltaTime) {
@@ -48,11 +57,10 @@ this.levelStartMessages = [
 
             if (this.currentLevel.levelOver) {
                 this.phase = "levelStart";
-                this.currentLevel = this.levelStartMessages[0];
+                this.currentLevel = this.levelStartMessages[this.currentLevelIndex];
                 this.currentLevel.levelOver = false;
-                this.playButton.style.display = "block";
-                this.playButton.textContent = "START";
             }
+
             return;
         }
 
@@ -65,6 +73,7 @@ this.levelStartMessages = [
                 this.currentLevel.reset();
                 this.playButton.style.display = "none";
             }
+
             return;
         }
 
@@ -85,9 +94,8 @@ this.levelStartMessages = [
                 this.phase = "levelStart";
                 this.currentLevel = this.levelStartMessages[this.currentLevelIndex];
                 this.currentLevel.levelOver = false;
-                this.playButton.style.display = "block";
-                this.playButton.textContent = "START";
             }
+
             return;
         }
 

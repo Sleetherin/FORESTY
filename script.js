@@ -13,42 +13,41 @@ window.addEventListener('load', function () {
     const info = document.getElementById("how_to_play");
     const pauseButton = document.getElementById("pause_button");
 
-    canvas.width = window.innerWidth;
-    canvas.height = 800;
+    const GAME_WIDTH = 1200;
+    const GAME_HEIGHT = 800;
 
-    const game = new LevelManager(canvas.width, canvas.height);
-    const ui = new UI({
-        width: canvas.width,
-        height: canvas.height
-    });
+    canvas.width = GAME_WIDTH;
+    canvas.height = GAME_HEIGHT;
+
+    const game = new LevelManager(GAME_WIDTH, GAME_HEIGHT);
+    const ui = new UI({ width: GAME_WIDTH, height: GAME_HEIGHT });
 
     let lastTime = 0;
 
     function animate(timeStamp) {
-        const deltaTime = timeStamp - lastTime;
-        lastTime = timeStamp;
+    const deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (!isPaused) {
-            game.update(deltaTime);
-        }
-
-        game.draw(ctx);
-
-        if (isPaused) {
-            ui.showPauseOverlay(ctx);
-        }
-
-        if (!game.gameOver) {
-            requestAnimationFrame(animate);
-        }
+    if (!isPaused) {
+        game.update(deltaTime);
     }
 
-    pauseButton.addEventListener("click", function () {
-        togglePause();
-        pauseButton.textContent = isPaused ? "Resume" : "Pause";
-    });
+    game.draw(ctx);
+
+    if (isPaused) {
+        ui.showPauseOverlay(ctx);
+    }
+
+    if (!game.gameOver) {
+        requestAnimationFrame(animate);
+    }
+   }
+    pauseButton.addEventListener("click", () => {
+    togglePause();
+    pauseButton.textContent = isPaused ? "Resume" : "Pause";
+});
 
     closeInfo.addEventListener("click", function () {
         info.style.display = "none";

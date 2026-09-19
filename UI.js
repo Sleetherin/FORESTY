@@ -37,7 +37,11 @@ export class UI{
         context.font = this.fontSize + 'px ' + this.fontFamily;
         context.textAlign = 'center';
         context.fillStyle = this.color;
-        context.fillText('Level ' + levelText, 800, 65);
+        context.fillText(
+        'Level ' + levelText,
+        this.width / 2,
+         65
+        );
         context.restore();
     }
 
@@ -54,19 +58,21 @@ export class UI{
        context.restore();
     }
 
-    showWinningMessage(context,message)
-    {
-        context.save();
-        context.shadowOffsetX = 2;
-        context.shadowOffsetY = 2;
-        context.shadowColor = 'black';
-        context.shadowBlur = 0;
-        context.font = this.fontSize + 'px ' + this.fontFamily;
-        context.textAlign = 'center';
-        context.fillStyle = this.color;
-        context.fillText(message, 800, 380);
-        context.restore();
-    }
+    showWinningMessage(context, message) {
+    context.save();
+
+    context.shadowOffsetX = 2;
+    context.shadowOffsetY = 2;
+    context.shadowColor = 'black';
+    context.shadowBlur = 0;
+    context.font = this.fontSize + 'px ' + this.fontFamily;
+    context.textAlign = 'center';
+    context.fillStyle = this.color;
+
+    context.fillText(message, this.width / 2, this.height / 2);
+
+    context.restore();
+}
 
     showPauseOverlay(context) {
         context.save();
