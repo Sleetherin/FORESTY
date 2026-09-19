@@ -1,3 +1,6 @@
+//import the pause state variable from pauseState.js
+import { isPaused } from './pauseState.js';
+
 export class CollisionAnimation{
     constructor(game, x, y){
         this.game = game;

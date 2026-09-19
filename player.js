@@ -1,4 +1,6 @@
 import { Projectile} from './projectile.js';
+//import the pause state variable from pauseState.js
+import { isPaused } from './pauseState.js';
 
 export class Player{
     constructor(game, leveling){

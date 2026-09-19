@@ -1,3 +1,6 @@
+//import the pause state variable from pauseState.js
+import { isPaused } from './pauseState.js';
+
 export default class Layer{
     constructor(game, width, height, speedModifier, image){
        this.game = game;

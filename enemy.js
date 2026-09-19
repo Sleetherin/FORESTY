@@ -1,3 +1,7 @@
+//import the pause state variable from pauseState.js
+import { isPaused } from './pauseState.js';
+
+
 class Enemy{
     constructor(speed){
         this.frameX = 0;

@@ -1,3 +1,6 @@
+//import the pause state variable from pauseState.js
+import { isPaused } from './pauseState.js';
+
 export class Projectile
 {
     constructor(game,x,y)

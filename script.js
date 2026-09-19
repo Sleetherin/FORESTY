@@ -2,31 +2,42 @@
  *  This is the main JavaScript file
  */
 
+//import the pause state variable from pauseState.js
+import { isPaused } from './pauseState.js';
 
+//import UI class
+import { UI } from './UI.js';
 
 //all the levels
 import {LevelManager} from "../levels/levelManager.js";
 
 
-window.addEventListener('load', function(){
+
+
+window.addEventListener('load', function()
+{
+    
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d');
     const close_info = document.getElementById("close_button");
     const info = document.getElementById("how_to_play");
     const pauseButton = document.getElementById("pause_button");
     let isPaused = false;
-
     canvas.width = this.innerWidth;
     canvas.height = 800;
-
-    
+   
 
     const game = new LevelManager(canvas.width, canvas.height);
+    const ui = new UI({
+    width: canvas.width,
+    height: canvas.height
+    });
     let lastTime = 0;
 
 
 
     function animate(timeStamp){
+    
         if(!isPaused)
         {   
             const deltaTime = timeStamp - lastTime;
@@ -37,7 +48,8 @@ window.addEventListener('load', function(){
         }
         else
         {
-            game.ui.showPauseOverlay(ctx);
+           
+            ui.showPauseOverlay(ctx);
         }
        if(!game.gameOver) requestAnimationFrame(animate); 
     }
@@ -52,7 +64,7 @@ window.addEventListener('load', function(){
         info.style.display = "none";
     });
  
-
+    //animate
     animate(0);
 })
 
