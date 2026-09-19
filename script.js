@@ -2,71 +2,57 @@
  *  This is the main JavaScript file
  */
 
-//import the pause state variable from pauseState.js
-import { isPaused } from './pauseState.js';
-
-//import UI class
+import { isPaused, togglePause } from './pauseState.js';
 import { UI } from './UI.js';
+import { LevelManager } from './levels/levelManager.js';
 
-//all the levels
-import {LevelManager} from "../levels/levelManager.js";
-
-
-
-
-window.addEventListener('load', function()
-{
-    
+window.addEventListener('load', function () {
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d');
-    const close_info = document.getElementById("close_button");
+    const closeInfo = document.getElementById("close_button");
     const info = document.getElementById("how_to_play");
     const pauseButton = document.getElementById("pause_button");
-    let isPaused = false;
-    canvas.width = this.innerWidth;
+
+    canvas.width = window.innerWidth;
     canvas.height = 800;
-   
 
     const game = new LevelManager(canvas.width, canvas.height);
     const ui = new UI({
-    width: canvas.width,
-    height: canvas.height
+        width: canvas.width,
+        height: canvas.height
     });
+
     let lastTime = 0;
 
+    function animate(timeStamp) {
+        const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
 
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    function animate(timeStamp){
-    
-        if(!isPaused)
-        {   
-            const deltaTime = timeStamp - lastTime;
-            lastTime = timeStamp;
-            ctx.clearRect(0,0,canvas.width,canvas.height);
+        if (!isPaused) {
             game.update(deltaTime);
-            game.draw(ctx);
         }
-        else
-        {
-           
+
+        game.draw(ctx);
+
+        if (isPaused) {
             ui.showPauseOverlay(ctx);
         }
-       if(!game.gameOver) requestAnimationFrame(animate); 
+
+        if (!game.gameOver) {
+            requestAnimationFrame(animate);
+        }
     }
 
-    pauseButton.addEventListener("click",function() 
-    {
-       isPaused = !isPaused;
-       pauseButton.textContent = isPaused ? "Resume" : "Pause";
+    pauseButton.addEventListener("click", function () {
+        togglePause();
+        pauseButton.textContent = isPaused ? "Resume" : "Pause";
     });
 
-    close_info.addEventListener("click", function(){
+    closeInfo.addEventListener("click", function () {
         info.style.display = "none";
     });
- 
-    //animate
-    animate(0);
-})
 
-
-
+    requestAnimationFrame(animate);
+});
