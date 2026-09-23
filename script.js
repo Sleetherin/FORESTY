@@ -24,30 +24,42 @@ window.addEventListener('load', function () {
 
     let lastTime = 0;
 
+    function updatePauseButton() {
+        pauseButton.textContent = isPaused ? "Resume" : "Pause";
+    }
+
+    function toggleGamePause() {
+        togglePause();
+        updatePauseButton();
+    }
+
     function animate(timeStamp) {
-    const deltaTime = timeStamp - lastTime;
-    lastTime = timeStamp;
+        const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (!isPaused) {
-        game.update(deltaTime);
-    }
+        if (!isPaused) {
+            game.update(deltaTime);
+        }
 
-    game.draw(ctx);
+        game.draw(ctx);
 
-    if (isPaused) {
-        ui.showPauseOverlay(ctx);
-    }
+        if (isPaused) {
+            ui.showPauseOverlay(ctx);
+        }
 
-    if (!game.gameOver) {
         requestAnimationFrame(animate);
     }
-   }
-    pauseButton.addEventListener("click", () => {
-    togglePause();
-    pauseButton.textContent = isPaused ? "Resume" : "Pause";
-});
+
+    pauseButton.addEventListener("click", toggleGamePause);
+
+    window.addEventListener("keydown", (event) => {
+        if (event.key.toLowerCase() === "p" && !event.repeat) {
+            event.preventDefault();
+            toggleGamePause();
+        }
+    });
 
     closeInfo.addEventListener("click", function () {
         info.style.display = "none";
@@ -55,4 +67,3 @@ window.addEventListener('load', function () {
 
     requestAnimationFrame(animate);
 });
-

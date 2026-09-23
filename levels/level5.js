@@ -167,17 +167,16 @@ export class Level5 {
    * level. The game has initially five levels planned.
    */
    isCompleted(){
-      if(this.time > this.maxTime){ 
-         if(this.score < this.winningScore) 
-         {
-            this.reset();
-         }
-      }
-      else if(this.score > this.winningScore)
+      if(this.score >= this.maxScore)
       {
          this.levelOver = true;
          return true;
       }
+      if(this.time >= this.maxTime){ 
+         this.reset();
+         return false;
+      }
+     return false;
    }
 }
 

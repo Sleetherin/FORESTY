@@ -27,11 +27,11 @@ export class LevelManager {
         );
 
         this.levelStartMessages = [
-            new StartGameMessage(width, height, "LEVEL ONE", "Eliminate 30 dark ghosts in 30 seconds."),
-            new StartGameMessage(width, height, "LEVEL TWO", "Eliminate 40 sandwich aliens in 50 seconds."),
-            new StartGameMessage(width, height, "LEVEL THREE", "Survive for 60 seconds without letting angry ghosts pass."),
-            new StartGameMessage(width, height, "LEVEL FOUR", "Destroy blue ghosts and survive for 70 seconds."),
-            new StartGameMessage(width, height, "LEVEL FIVE", "Eliminate 50 monsters before time runs out.")
+            new StartGameMessage(width, height, "LEVEL ONE", "Eliminate 30 dark ghosts in 30 seconds!"),
+            new StartGameMessage(width, height, "LEVEL TWO", "Eliminate 40 sandwich aliens in 50 seconds!"),
+            new StartGameMessage(width, height, "LEVEL THREE", "Don't let any angry ghosts pass for 60 seconds"),
+            new StartGameMessage(width, height, "LEVEL FOUR", "Destroy blue ghosts using the space button and survive for 70 seconds."),
+            new StartGameMessage(width, height, "LEVEL FIVE", "Eliminate 50 monsters during 80 seconds!")
         ];
 
         this.phase = "start";
